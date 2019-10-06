@@ -11,10 +11,9 @@ function main() {
     const remaininigtimeelem = document.getElementById("remainingtime");
     const canvas = <HTMLCanvasElement>document.getElementById("canvas");
     resultcontainer.style.display = "";
-    const size = canvas.width = canvas.height = Math.min(document.body.clientWidth, window.innerHeight - table.clientHeight - 20);
+    const size = Math.floor(Math.min(document.body.clientWidth, window.innerHeight - table.clientHeight - 20) * window.devicePixelRatio);
     const ctx = canvas.getContext("2d");
-    canvas.width *= window.devicePixelRatio;
-    canvas.height *= window.devicePixelRatio;
+    canvas.width = canvas.height = size;
     canvas.style.width = String(canvas.width / window.devicePixelRatio) + "px";
     canvas.style.height = String(canvas.height / window.devicePixelRatio) + "px";
     resultcontainer.style.display = "none";
