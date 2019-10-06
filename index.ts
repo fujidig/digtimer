@@ -11,11 +11,12 @@ function main() {
     const remaininigtimeelem = document.getElementById("remainingtime");
     const canvas = <HTMLCanvasElement>document.getElementById("canvas");
     resultcontainer.style.display = "";
-    const size = Math.floor(Math.min(document.body.clientWidth, window.innerHeight - table.clientHeight - 20) * window.devicePixelRatio);
+    const pixelratio = 1; // window.devicePixelRatio;
+    const size = Math.floor(Math.min(document.body.clientWidth, window.innerHeight - table.clientHeight - 20) * pixelratio);
     const ctx = canvas.getContext("2d");
     canvas.width = canvas.height = size;
-    canvas.style.width = String(canvas.width / window.devicePixelRatio) + "px";
-    canvas.style.height = String(canvas.height / window.devicePixelRatio) + "px";
+    canvas.style.width = String(canvas.width / pixelratio) + "px";
+    canvas.style.height = String(canvas.height / pixelratio) + "px";
     resultcontainer.style.display = "none";
     
     let time = 0;
