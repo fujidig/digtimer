@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>digtimer</title>
+<style>html, body { margin: 0; padding: 0; }</style>
 <script src="bundle.js"></script>
 </head>
 <body>
@@ -16,6 +17,7 @@ Time: <input type="text" value="2" size="8" id="timeinput"> min.
 </form>
 </div>
 <div id="result-container" style="display: none">
+<div id="table">
 <table>
 <tr>
 <td>Time: </td><td id="time"></td>
@@ -33,6 +35,7 @@ Time: <input type="text" value="2" size="8" id="timeinput"> min.
 <td>Remaining time: </td><td id="remainingtime"></td>
 </tr>
 </table>
+</div>
 <canvas id="canvas" />
 </div>
 </body>

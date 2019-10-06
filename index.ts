@@ -1,6 +1,7 @@
 function main() {
     const formcontainer = document.getElementById("form-container");
     const resultcontainer = document.getElementById("result-container");
+    const table = document.getElementById("table");
     const form = <HTMLFormElement>document.getElementById("form");
     const timeinput = <HTMLInputElement>document.getElementById("timeinput");
     const timeelem = document.getElementById("time");
@@ -9,12 +10,14 @@ function main() {
     const elapsedtimeelem = document.getElementById("elapsedtime");
     const remaininigtimeelem = document.getElementById("remainingtime");
     const canvas = <HTMLCanvasElement>document.getElementById("canvas");
-    const size = canvas.width = canvas.height = Math.min(document.body.clientWidth, 400);
+    resultcontainer.style.display = "";
+    const size = canvas.width = canvas.height = Math.min(document.body.clientWidth, window.innerHeight - table.clientHeight - 20);
     const ctx = canvas.getContext("2d");
     canvas.width *= window.devicePixelRatio;
     canvas.height *= window.devicePixelRatio;
     canvas.style.width = String(canvas.width / window.devicePixelRatio) + "px";
     canvas.style.height = String(canvas.height / window.devicePixelRatio) + "px";
+    resultcontainer.style.display = "none";
     
     let time = 0;
     let starttime = 0;
