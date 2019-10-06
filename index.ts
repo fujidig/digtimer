@@ -14,9 +14,16 @@ function main() {
     let time = 0;
     let starttime = 0;
     form.addEventListener("submit", () => {
-        time = Number(timeinput.value) * 60;
         const date = new Date();
         starttime = +date;
+        const matched = timeinput.value.match(/^(\d+):(\d+)$/);
+        if (matched) {
+            const endtime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), Number(matched[1]), Number(matched[2]));
+            console.log(endtime);
+            time = (+endtime - starttime) / 1000;
+        } else {
+            time = Number(timeinput.value) * 60;
+        }
         formcontainer.style.display = "none";
         resultcontainer.style.display = "";
         timeelem.textContent = Math.floor(time / 60) + " min ";
