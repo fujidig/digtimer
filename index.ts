@@ -11,6 +11,11 @@ function main() {
     const canvas = <HTMLCanvasElement>document.getElementById("canvas");
     const size = canvas.width = canvas.height = Math.min(document.body.clientWidth, 400);
     const ctx = canvas.getContext("2d");
+    canvas.width *= window.devicePixelRatio;
+    canvas.height *= window.devicePixelRatio;
+    canvas.style.width = String(canvas.width / window.devicePixelRatio) + "px";
+    canvas.style.height = String(canvas.height / window.devicePixelRatio) + "px";
+    
     let time = 0;
     let starttime = 0;
     form.addEventListener("submit", () => {
