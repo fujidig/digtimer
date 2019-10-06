@@ -37,6 +37,7 @@ function main() {
 
 function draw(ctx: CanvasRenderingContext2D, size: number, time: number, elapsed: number) {
     const ratio = 1 - elapsed / time;
+    const remaining = time - elapsed;
     const outerradius = size * 0.4;
     const innerradius = size * 0.3;
     ctx.clearRect(0, 0, size, size);
@@ -46,6 +47,13 @@ function draw(ctx: CanvasRenderingContext2D, size: number, time: number, elapsed
     drawarc(2 * Math.PI - Math.PI / 2);
     ctx.fillStyle = "#349eeb";
     drawarc(- Math.PI / 2 + Math.PI * 2 * ratio);
+    ctx.font = "20px sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    ctx.fillText(Math.floor(remaining / 60) + " min " + Math.floor(remaining % 60) + " sec", 0, -20);
+    ctx.font = "30px sans-serif";
+    ctx.fillText(Math.floor(ratio * 100) + "%", 0, 0);
+    ctx.restore();
     
     function drawarc(theta: number) {
         ctx.beginPath();
@@ -55,7 +63,6 @@ function draw(ctx: CanvasRenderingContext2D, size: number, time: number, elapsed
         ctx.arc(0, 0, innerradius, theta, - Math.PI / 2, true);
         ctx.fill();
     }
-    ctx.restore();
 
 
 }
